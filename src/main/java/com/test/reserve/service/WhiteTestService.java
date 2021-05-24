@@ -23,12 +23,12 @@ public class WhiteTestService {
         List<Student> students = dataTest.listOfStudent;
         boolean test_student = students.stream().anyMatch(x->x.getId()==student_id);
         if(!test_student)
-            whiteTestResponse.getCriteriaMismatch().add("this student does not exist");
+            whiteTestResponse.getCriteriaMismatch().add("student not exist");
 
         List<Exam> exams = dataTest.listOfExam;
         boolean test_exam = exams.stream().anyMatch(x->x.getCode().equals(exam_code));
         if(!test_exam)
-            whiteTestResponse.getCriteriaMismatch().add("this exam does not exist");
+            whiteTestResponse.getCriteriaMismatch().add("exam not exist");
 
 
         if(whiteTestResponse.getCriteriaMismatch().isEmpty()){
@@ -42,7 +42,7 @@ public class WhiteTestService {
             }
 
             // add error if the student exist and the exam also but there is no whiteTestResponse for both
-            whiteTestResponse.getCriteriaMismatch().add("exam code does not joiniable for current student ");
+            whiteTestResponse.getCriteriaMismatch().add("code does not exist ");
         }
        return whiteTestResponse;
 

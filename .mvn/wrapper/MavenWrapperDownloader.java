@@ -74,22 +74,22 @@ public class MavenWrapperDownloader {
                 }
             }
         }
-        System.out.println("- Downloading from: " + url);
+        System.out.println(" Download from: " + url);
 
         File outputFile = new File(baseDirectory.getAbsolutePath(), MAVEN_WRAPPER_JAR_PATH);
         if (!outputFile.getParentFile().exists()) {
             if (!outputFile.getParentFile().mkdirs()) {
                 System.out.println(
-                        "- ERROR creating output directory '" + outputFile.getParentFile().getAbsolutePath() + "'");
+                        "Erreur " + outputFile.getParentFile().getAbsolutePath() + "'");
             }
         }
-        System.out.println("- Downloading to: " + outputFile.getAbsolutePath());
+        System.out.println("Download to: " + outputFile.getAbsolutePath());
         try {
             downloadFileFromURL(url, outputFile);
-            System.out.println("Done");
+            System.out.println("ok");
             System.exit(0);
         } catch (Throwable e) {
-            System.out.println("- Error downloading");
+            System.out.println("Erreur");
             e.printStackTrace();
             System.exit(1);
         }
@@ -107,12 +107,12 @@ public class MavenWrapperDownloader {
             });
         }
         URL website = new URL(urlString);
-        ReadableByteChannel rbc;
-        rbc = Channels.newChannel(website.openStream());
-        FileOutputStream fos = new FileOutputStream(destination);
-        fos.getChannel().transferFrom(rbc, 0, Long.MAX_VALUE);
-        fos.close();
-        rbc.close();
+        ReadableByteChannel read;
+        read = Channels.newChannel(website.openStream());
+        FileOutputStream f = new FileOutputStream(destination);
+        f.getChannel().transferFrom(read, 0, Long.MAX_VALUE);
+        f.close();
+        read.close();
     }
 
 }
