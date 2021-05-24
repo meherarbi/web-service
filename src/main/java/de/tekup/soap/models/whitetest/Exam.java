@@ -36,10 +36,10 @@ import javax.xml.bind.annotation.XmlType;
  * 
  */
 @XmlAccessorType(XmlAccessType.FIELD)
-@XmlType(name = "Exam", propOrder = {
+@XmlType(name = "Examen", propOrder = {
     "code",
     "name",
-    "disponible"
+    "Disponible"
 })
 public class Exam {
 
